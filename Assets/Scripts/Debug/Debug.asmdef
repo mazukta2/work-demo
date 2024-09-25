@@ -1,0 +1,16 @@
+{
+    "name": "Debug",
+    "rootNamespace": "",
+    "references": [
+        "GUID:1de6020e2f04b5a46bd66d18b745939d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
