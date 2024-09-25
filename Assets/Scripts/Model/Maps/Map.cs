@@ -10,7 +10,7 @@ namespace Model.Maps
 
         protected void Awake()
         {
-            AssertUtilities.Assert(_bounds.size != Vector3.zero, "Map size can't be zero");
+            AssertUtilities.ThrowExceptionIfNotTrue(_bounds.size != Vector3.zero, "Map size can't be zero");
         }
 
         public bool IsOutside(Vector3 position)

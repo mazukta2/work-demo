@@ -3,7 +3,7 @@ using Model.Physics;
 using UnityEngine;
 using Utilities;
 
-namespace Model.Movement
+namespace Model.Behaviours
 {
     public class JumpOfOnCollisionWithPray : MonoBehaviour
     {

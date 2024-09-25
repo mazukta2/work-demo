@@ -7,7 +7,7 @@ namespace Model.Spawners
 {
     public class Spawn : MonoBehaviour
     {
-        [SerializeField] private GameObject _prefab;
+        [SerializeField] private GameObject[] _prefabs;
         [SerializeField] private float _minTime = 1;
         [SerializeField] private float _maxTime = 2;
         [SerializeField] private int _maximumChildren = 10;
@@ -17,7 +17,7 @@ namespace Model.Spawners
 
         public void Awake()
         {
-            _prefab.ThrowExceptionIfNull();
+            AssertUtilities.ThrowExceptionIfNotTrue(_prefabs.Length > 0, "Prefabs list is empty");
             _minTime.ThrowExceptionIfNegative().ThrowExceptionIfMoreThan(_maxTime);
         }
 
@@ -36,7 +36,9 @@ namespace Model.Spawners
                     Random.Range(_bounds.min.z, _bounds.max.z)
                 );
                 var rotation = Quaternion.Euler(0, Random.Range(0,360), 0);
-                Instantiate(_prefab, position, rotation, transform);
+                
+                var prefab = _prefabs[Random.Range(0, _prefabs.Length)];
+                Instantiate(prefab, position, rotation, transform);
             }
         }
 

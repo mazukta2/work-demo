@@ -6,10 +6,11 @@ namespace Utilities
     public static class AssertUtilities
     {
 
-        public static void Assert(bool value, string message)
+        public static bool ThrowExceptionIfNotTrue(bool value, string message = null)
         {
             if (!value)
                 throw new Exception(message);
+            return true;
         }
         
         public static T ThrowExceptionIfNull<T>(this T value)

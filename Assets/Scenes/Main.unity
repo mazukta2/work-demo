@@ -607,7 +607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e41224672f47819f4ca2d0a03a6332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5646480003690711599, guid: c446294d269b5c041a2903fc02893abb, type: 3}
+  _prefabs:
+  - {fileID: 9128227215665557195, guid: 61bf471d2d5c79044a30b68e76dc560d, type: 3}
+  - {fileID: 9128227215665557195, guid: fb2786f1b47125742a5ca86509c578bc, type: 3}
   _minTime: 1
   _maxTime: 2
   _maximumChildren: 10
