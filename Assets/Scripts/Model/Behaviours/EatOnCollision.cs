@@ -1,11 +1,20 @@
-﻿using Model.Animals;
+﻿using System;
+using Infrastructure.Services;
+using Model.Animals;
+using Model.Killing;
 using UnityEngine;
 
 namespace Model.Behaviours
 {
     public class EatOnCollision : MonoBehaviour
     {
-        
+        [SerializeField] private KillingManager _killingManager;
+
+        protected void OnEnable()
+        {
+            Service.FindIfNull(ref _killingManager);
+        }
+
         protected void OnCollisionEnter(Collision collision)
         {
             if (GetComponent<IsKilled>())
@@ -32,11 +41,7 @@ namespace Model.Behaviours
 
         private void Eat(GameObject otherGameObject)
         {
-            if (otherGameObject.GetComponent<IsKilled>() == null)
-            {
-                var killed = otherGameObject.AddComponent<IsKilled>();
-                killed.SetKiller(gameObject);
-            }
+            _killingManager.Kill(gameObject, otherGameObject);
         }
     }
 }

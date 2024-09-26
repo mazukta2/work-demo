@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Utilities;
 using Random = UnityEngine.Random;
 
-namespace Model.Spawners
+namespace Model.GameObjects
 {
     public class Spawn : MonoBehaviour
     {
