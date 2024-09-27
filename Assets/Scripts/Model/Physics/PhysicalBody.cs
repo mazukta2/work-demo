@@ -44,6 +44,11 @@ namespace Model.Physics
                 _rigidbody.AddTorque(0,Random.Range(-_rotationOnCollision, _rotationOnCollision),0, _jumpMode);
         }
 
+        public void Jump(Vector3 bodyForward, float jumpForce)
+        {
+            _rigidbody.AddForce((bodyForward + Vector3.up) * jumpForce, _jumpMode);
+        }
+
         public void Move(Vector3 direction, float movingSpeed)
         {
             _rigidbody.MovePosition(transform.position + direction * movingSpeed);
