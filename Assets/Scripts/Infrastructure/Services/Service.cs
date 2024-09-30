@@ -5,7 +5,7 @@ namespace Infrastructure.Services
 {
     public static class Service
     {
-        private static readonly Dictionary<System.Type, object> _cache = new ();
+        private static readonly Dictionary<System.Type, object> Database = new ();
         
         public static void FindIfNull<T>(ref T service) where T : UnityEngine.Object
         {
@@ -17,7 +17,7 @@ namespace Infrastructure.Services
         
         public static T Get<T>() where T : UnityEngine.Object
         {
-            if (_cache.TryGetValue(typeof(T), out object service))
+            if (Database.TryGetValue(typeof(T), out object service))
             {
                 return (T)service;
             }
@@ -26,7 +26,7 @@ namespace Infrastructure.Services
                 T serviceInstance = UnityEngine.Object.FindAnyObjectByType<T>();
                 if (serviceInstance == null)
                     throw new Exception("Can't find an object with type " + typeof(T).Name);
-                _cache.Add(typeof(T), serviceInstance);
+                Database.Add(typeof(T), serviceInstance);
                 return serviceInstance;
             }
         }

@@ -11,6 +11,7 @@ namespace Model.Movement
     public class SteerBackOutsideBorders : MonoBehaviour
     {
         [SerializeField] private float _angularSpeed = 1f;
+        [Header("Services")]
         [SerializeField] private Map _map;
         
         private PhysicalBody _body;

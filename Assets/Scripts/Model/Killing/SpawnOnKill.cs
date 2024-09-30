@@ -7,6 +7,7 @@ namespace Model.Killing
     public class SpawnOnKill : MonoBehaviour
     {
         [SerializeField] private GameObject _prefab;
+        [Header("Services")]
         [SerializeField] private KillingManager _killingManager;
 
         protected void OnEnable()

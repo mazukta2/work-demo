@@ -8,6 +8,7 @@ namespace Model.Behaviours
 {
     public class EatOnCollision : MonoBehaviour
     {
+        [Header("Services")]
         [SerializeField] private KillingManager _killingManager;
 
         protected void OnEnable()
@@ -17,7 +18,7 @@ namespace Model.Behaviours
 
         protected void OnCollisionEnter(Collision collision)
         {
-            if (GetComponent<IsKilled>())
+            if (GetComponent<IsDead>())
                 return;
             
             var otherRigidbody = collision.rigidbody;

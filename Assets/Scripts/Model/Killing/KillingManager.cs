@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Model.Killing
 {
+    // TODO: Prey and predator counts are hardcoded. Consider using ScriptableObject tags, to set it in editor.
     public class KillingManager : MonoBehaviour
     {
         public event Action<GameObject, GameObject> OnKill = delegate { };
@@ -13,11 +14,10 @@ namespace Model.Killing
 
         public void Kill(GameObject killer, GameObject victim)
         {
-            if (victim.GetComponent<IsKilled>() != null)
+            if (victim.GetComponent<IsDead>() != null)
                 return;
             
-            var isKilled = victim.AddComponent<IsKilled>();
-            isKilled.SetKiller(killer);
+            var isKilled = victim.AddComponent<IsDead>();
 
             if (victim.GetComponent<IsPrey>())
                 PreyKillCount++;

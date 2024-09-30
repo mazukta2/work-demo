@@ -3,6 +3,7 @@ using Utilities;
 
 namespace Model.Physics
 {
+    // TODO: it is slowly becoming a God Object. Think if we can refactor it.
     [RequireComponent(typeof(Rigidbody))]
     public class PhysicalBody : MonoBehaviour
     {

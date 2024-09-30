@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using Model.Movement;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
-namespace Editor.Positions
+namespace Debug.Positions
 {
+    // Puts targets on initial position on "Space" key.
     public class RestartPositions : MonoBehaviour
     {
         [SerializeField] private GameObject[] _targets;
+        [SerializeField] private KeyCode _hotkey = KeyCode.Space;
         
         Dictionary<GameObject, Vector3> _positions = new ();
         Dictionary<GameObject, Quaternion> _rotations = new ();
@@ -24,7 +23,7 @@ namespace Editor.Positions
 
         protected void LateUpdate()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(_hotkey))
             {
                 foreach (var target in _targets)
                 {

@@ -1,15 +1,16 @@
-﻿using System;
-using Infrastructure.Services;
+﻿using Infrastructure.Services;
 using Model.Killing;
 using TMPro;
 using UnityEngine;
 
 namespace Model.UI
 {
+    // TODO: prey and predator are hardcoded. think if we can use some binding to do it better.
     public class KillMeter : MonoBehaviour
     {
         [SerializeField] private TMP_Text _preyValue;
         [SerializeField] private TMP_Text _predatorValue;
+        [Header("Services")]
         [SerializeField] private KillingManager _killingManager;
 
         protected void OnEnable()
