@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Model.Behaviours
+namespace Model.Animals
 {
     // TODO: model logic don't have "IsDead" state, but this behaviour introduces it
     // We should encapsulate this logic inside killing manager.

@@ -2,19 +2,19 @@
 using UnityEngine;
 using Utilities;
 
-namespace Model.Movement
+namespace Model.Animals.Movement
 {
     [RequireComponent(typeof(PhysicalBody))]
-    public class JumpForwardMovement : MonoBehaviour
+    public class ForwardMovement : MonoBehaviour
     {
-        [SerializeField] private float _jumpForce = 1f;
+        [SerializeField] private float _movingSpeed = 1f;
         
         private PhysicalBody _body;
 
         protected void Awake()
         {
             _body = GetComponent<PhysicalBody>().ThrowExceptionIfNull();
-            _jumpForce.ThrowExceptionIfNegative();
+            _movingSpeed.ThrowExceptionIfNegative();
         }
         
         protected void Update()
@@ -25,7 +25,7 @@ namespace Model.Movement
             //if (Time.time <= _lastCollision + 1f)
             //    return;
             
-            _body.Jump(_body.Forward, _jumpForce);
+            _body.Move(_body.Forward, _movingSpeed * Time.deltaTime);
         }
 
     }

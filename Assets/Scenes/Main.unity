@@ -303,6 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 355928091}
   - component: {fileID: 355928092}
+  - component: {fileID: 355928093}
   m_Layer: 5
   m_Name: Prey
   m_TagString: Untagged
@@ -357,6 +358,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &355928093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355928090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9b3bad49d3a5641ab5da3b90c1e7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: {fileID: 11400000, guid: 8be265d22715b1c43ac05958bd7aa69d, type: 2}
+  _value: {fileID: 535681027}
+  _deathCount: {fileID: 484771492}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 484771490}
   - component: {fileID: 484771491}
+  - component: {fileID: 484771492}
   m_Layer: 0
   m_Name: Killing Manager
   m_TagString: Untagged
@@ -597,6 +614,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 730172d1da18450d8e0ab6055e600ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &484771492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484771489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4251e4da1716af246942bb93ff274dfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animals: {fileID: 484771491}
 --- !u!1 &520038772
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 520038773}
   - component: {fileID: 520038774}
+  - component: {fileID: 520038775}
   m_Layer: 5
   m_Name: Predator
   m_TagString: Untagged
@@ -661,6 +692,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &520038775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520038772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9b3bad49d3a5641ab5da3b90c1e7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: {fileID: 11400000, guid: fd2eee95ec16c4d448d4472e902ada5d, type: 2}
+  _value: {fileID: 1352475663}
+  _deathCount: {fileID: 484771492}
 --- !u!1 &535681025
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1807,6 @@ GameObject:
   - component: {fileID: 1927558978}
   - component: {fileID: 1927558980}
   - component: {fileID: 1927558979}
-  - component: {fileID: 1927558981}
   m_Layer: 5
   m_Name: Group
   m_TagString: Untagged
@@ -1830,21 +1875,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1927558981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1927558977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99783a24804343d2bf690fcc48709cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _preyValue: {fileID: 535681027}
-  _predatorValue: {fileID: 1352475663}
-  _killingManager: {fileID: 0}
 --- !u!1 &2005132515
 GameObject:
   m_ObjectHideFlags: 0

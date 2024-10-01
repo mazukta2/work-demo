@@ -1,8 +1,7 @@
-﻿using System;
-using Infrastructure.Services;
+﻿using Infrastructure.Services;
 using UnityEngine;
 
-namespace Model.Killing
+namespace Model.Animals.Eating
 {
     public class SpawnOnKill : MonoBehaviour
     {

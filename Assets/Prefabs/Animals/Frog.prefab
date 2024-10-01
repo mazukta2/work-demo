@@ -405,11 +405,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5646480003690711599, guid: 2ef23994894c5204c971c3de04eb7d95,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1317117239925252226}
+      addedObject: {fileID: 7194240877499319783}
     - targetCorrespondingSourceObject: {fileID: 5646480003690711599, guid: 2ef23994894c5204c971c3de04eb7d95,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7194240877499319783}
+      addedObject: {fileID: 1683745613051397068}
   m_SourcePrefab: {fileID: 100100000, guid: 2ef23994894c5204c971c3de04eb7d95, type: 3}
 --- !u!4 &6310066727314791069 stripped
 Transform:
@@ -450,18 +450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionJumpForce: 1
---- !u!114 &1317117239925252226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9128227215665557195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25c14a03e384b6a9fee4b1e9eda2444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7194240877499319783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,3 +463,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jumpForce: 0.1
+--- !u!114 &1683745613051397068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9128227215665557195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f09406a537543c391de3c05c5085520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: {fileID: 11400000, guid: 8be265d22715b1c43ac05958bd7aa69d, type: 2}

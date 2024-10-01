@@ -1,9 +1,8 @@
-﻿using Model.Animals;
-using Model.Physics;
+﻿using Model.Physics;
 using UnityEngine;
 using Utilities;
 
-namespace Model.Behaviours
+namespace Model.Animals.Movement
 {
     public class JumpOfOnCollisionWithPray : MonoBehaviour
     {
@@ -22,13 +21,8 @@ namespace Model.Behaviours
             var otherRigidbody = collision.rigidbody;
             if (otherRigidbody != null)
             {
-                var isPrey = otherRigidbody.GetComponent<IsPrey>() != null;
-                if (isPrey)
-                {
-                    //_lastCollision = Time.time;
-                    var middlePoint = Vector3.Lerp(otherRigidbody.transform.position, transform.position, 0.5f);
-                    _body.JumpOf(middlePoint, _collisionJumpForce);
-                }
+                var middlePoint = Vector3.Lerp(otherRigidbody.transform.position, transform.position, 0.5f);
+                _body.JumpOf(middlePoint, _collisionJumpForce);
             }
         }
 

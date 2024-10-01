@@ -1,10 +1,7 @@
-﻿using System;
-using Infrastructure.Services;
-using Model.Animals;
-using Model.Killing;
+﻿using Infrastructure.Services;
 using UnityEngine;
 
-namespace Model.Behaviours
+namespace Model.Animals.Eating
 {
     public class EatOnCollision : MonoBehaviour
     {
@@ -24,19 +21,7 @@ namespace Model.Behaviours
             var otherRigidbody = collision.rigidbody;
             if (otherRigidbody != null)
             {
-                var isPrey = otherRigidbody.GetComponent<IsPrey>() != null;
-                if (isPrey)
-                {
-                    Eat(otherRigidbody.gameObject);
-                    return;
-                }
-                
-                var isPredator = otherRigidbody.GetComponent<IsPredator>() != null;
-                if (isPredator)
-                {
-                    Eat(otherRigidbody.gameObject);
-                    return;
-                }
+                Eat(otherRigidbody.gameObject);
             }
         }
 

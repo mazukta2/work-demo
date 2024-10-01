@@ -4,7 +4,7 @@ using Model.Physics;
 using UnityEngine;
 using Utilities;
 
-namespace Model.Movement
+namespace Model.Animals.Movement
 {
     // return behaviour to position inside borders
     [RequireComponent(typeof(PhysicalBody))]
