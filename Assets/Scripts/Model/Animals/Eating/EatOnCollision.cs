@@ -5,12 +5,11 @@ namespace Model.Animals.Eating
 {
     public class EatOnCollision : MonoBehaviour
     {
-        [Header("Services")]
-        [SerializeField] private KillingManager _killingManager;
+        [SerializeField] private Predator _predator;
 
         protected void OnEnable()
         {
-            Service.FindIfNull(ref _killingManager);
+            Service.FindIfNull(ref _predator);
         }
 
         protected void OnCollisionEnter(Collision collision)
@@ -27,7 +26,7 @@ namespace Model.Animals.Eating
 
         private void Eat(GameObject otherGameObject)
         {
-            _killingManager.Kill(gameObject, otherGameObject);
+            _predator.Kill(otherGameObject);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Infrastructure.GameEvents;
 using Model.Animals.Eating;
 using Model.Tags;
 using UnityEngine;
@@ -9,7 +10,8 @@ namespace Model.Animals.DeathCounting
 {
     public class DeathCount : MonoBehaviour
     {
-        [SerializeField] private KillingManager _animals;
+        [SerializeField] private GameEvent<Predator.OnPredatorKilledEvent> _onKill;
+        
         public event Action<ScriptableTag> OnChangedForTag = delegate { };
         
         private readonly Dictionary<ScriptableTag, int> _counters = new ();
@@ -17,18 +19,17 @@ namespace Model.Animals.DeathCounting
 
         protected void OnEnable()
         {
-            _animals.ThrowExceptionIfNull();
-            _animals.OnKill += HandleOnAnimalEaten;
+            _onKill.OnEvent += HandleOnAnimalEaten;
         }
 
         protected void OnDisable()
         {
-            _animals.OnKill -= HandleOnAnimalEaten;
+            _onKill.OnEvent -= HandleOnAnimalEaten;
         }
         
-        private void HandleOnAnimalEaten(GameObject killer, GameObject victim)
+        private void HandleOnAnimalEaten(Predator.OnPredatorKilledEvent message)
         {
-            foreach (var victimTag in victim.GetComponents<Tag>())
+            foreach (var victimTag in message.Victim.GetComponents<Tag>())
             {
                 AddKill(victimTag.GetTag());
             }

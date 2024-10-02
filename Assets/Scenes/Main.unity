@@ -578,10 +578,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 484771490}
-  - component: {fileID: 484771491}
   - component: {fileID: 484771492}
   m_Layer: 0
-  m_Name: Killing Manager
+  m_Name: Death Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,18 +601,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 287787385}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &484771491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484771489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730172d1da18450d8e0ab6055e600ba2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &484771492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,7 +613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4251e4da1716af246942bb93ff274dfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animals: {fileID: 484771491}
 --- !u!1 &520038772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1920,7 +1906,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 2773559204363402790, guid: 2d026b6bad247144b94d653318e23f9c, type: 3}
-  _killingManager: {fileID: 0}
 --- !u!1 &2066770779
 GameObject:
   m_ObjectHideFlags: 0

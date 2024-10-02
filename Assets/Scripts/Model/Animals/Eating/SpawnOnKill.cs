@@ -1,4 +1,5 @@
-﻿using Infrastructure.Services;
+﻿using Infrastructure.GameEvents;
+using Infrastructure.Services;
 using UnityEngine;
 
 namespace Model.Animals.Eating
@@ -6,23 +7,21 @@ namespace Model.Animals.Eating
     public class SpawnOnKill : MonoBehaviour
     {
         [SerializeField] private GameObject _prefab;
-        [Header("Services")]
-        [SerializeField] private KillingManager _killingManager;
+        [SerializeField] private GameEvent<Predator.OnPredatorKilledEvent> _onKill;
 
         protected void OnEnable()
         {
-            Service.FindIfNull(ref _killingManager);
-            _killingManager.OnKill += HandleOnKill;
+            _onKill.OnEvent += HandleOnKill;
         }
 
         protected void OnDisable()
         {
-            _killingManager.OnKill -= HandleOnKill;
+            _onKill.OnEvent -= HandleOnKill;
         }
 
-        private void HandleOnKill(GameObject killer, GameObject victim)
+        private void HandleOnKill(Predator.OnPredatorKilledEvent message)
         {
-            Instantiate(_prefab, killer.transform.position, Quaternion.identity, transform);
+            Instantiate(_prefab, message.Killer.transform.position, Quaternion.identity, transform);
         }
     }
 }
