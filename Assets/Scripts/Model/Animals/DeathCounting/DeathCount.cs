@@ -11,11 +11,9 @@ namespace Model.Animals.DeathCounting
     public class DeathCount : MonoBehaviour
     {
         [SerializeField] private GameEvent<Predator.OnPredatorKilledEvent> _onKill;
-        
-        public event Action<ScriptableTag> OnChangedForTag = delegate { };
+        [SerializeField] private GameEvent<OnDeathCountChangedEvent> _onDeathCountChanged;
         
         private readonly Dictionary<ScriptableTag, int> _counters = new ();
-
 
         protected void OnEnable()
         {
@@ -42,12 +40,33 @@ namespace Model.Animals.DeathCounting
 
         private void AddKill(ScriptableTag scriptableTag)
         {
+            var value = 0;
             if (_counters.TryGetValue(scriptableTag, out var count))
+            {
                 _counters[scriptableTag] = count + 1;
+                value = count + 1;
+            }
             else
+            {
                 _counters.Add(scriptableTag, 1);
+                value = 1;
+            }
 
-            OnChangedForTag(scriptableTag);
+            _onDeathCountChanged.Invoke(new OnDeathCountChangedEvent(this, scriptableTag, value));
+        }
+        
+        public readonly struct OnDeathCountChangedEvent
+        {
+            public readonly DeathCount DeathCount;
+            public readonly ScriptableTag Tag;
+            public readonly int Count;
+
+            public OnDeathCountChangedEvent(DeathCount deathCount, ScriptableTag tag, int count)
+            {
+                DeathCount = deathCount;
+                Tag = tag;
+                Count = count;
+            }
         }
     }
 }

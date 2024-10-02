@@ -1,4 +1,5 @@
-﻿using Model.Tags;
+﻿using Infrastructure.GameEvents;
+using Model.Tags;
 using TMPro;
 using UnityEngine;
 using Utilities;
@@ -10,6 +11,7 @@ namespace Model.Animals.DeathCounting
         [SerializeField] private ScriptableTag _tag;
         [SerializeField] private TMP_Text _value;
         [SerializeField] private DeathCount _deathCount;
+        [SerializeField] private GameEvent<DeathCount.OnDeathCountChangedEvent> _onDeathCountChanged;
         
         public void Receive(DeathCount value)
         {
@@ -21,18 +23,18 @@ namespace Model.Animals.DeathCounting
             _tag.ThrowExceptionIfNull();
             _value.ThrowExceptionIfNull();
             _deathCount.ThrowExceptionIfNull();
-            _deathCount.OnChangedForTag += HandleChanged;
+            _onDeathCountChanged.OnEvent += HandleChanged;
             UpdateView();
         }
 
         protected void OnDisable()
         {
-            _deathCount.OnChangedForTag -= HandleChanged;
+            _onDeathCountChanged.OnEvent -= HandleChanged;
         }
 
-        private void HandleChanged(ScriptableTag scriptableTag)
+        private void HandleChanged(DeathCount.OnDeathCountChangedEvent message)
         {
-            if (scriptableTag == _tag)
+            if (_deathCount == message.DeathCount && message.Tag == _tag)
                 UpdateView();
         }
         
